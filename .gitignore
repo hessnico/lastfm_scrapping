@@ -140,3 +140,4 @@ config.py
 
 out.csv
 *.ipynb
+*.csv
