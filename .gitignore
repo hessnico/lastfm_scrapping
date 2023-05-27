@@ -127,3 +127,16 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# ignore all logs
+*.log
+
+# ignore testing files 
+teste.ipynb
+teste.txt
+
+# ignore config.py file
+config.py
+
+out.csv
+*.ipynb
