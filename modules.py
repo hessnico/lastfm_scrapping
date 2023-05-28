@@ -17,6 +17,7 @@ def get_last_library_page(user):
     return last_page_to_search
 
 def get_soup(index, user):
+    # import cookies from lastfm webpage 
     cookies, headers = cf.import_cookies_headers()
     response = requests.get(f'https://www.last.fm/pt/user/{user}', cookies=cookies, headers=headers)
     print(f"    Getting soup...")
