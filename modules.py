@@ -29,7 +29,7 @@ def get_soup(index, user):
 
 def write_csv(soup):
     tbodys = soup.find_all('tbody')[:-1]
-    with open("out.csv", "a", newline="") as f:
+    with open("./raw_exported_data/out.csv", "a", newline="") as f:
         print("     Appending new information in csv")
         writer = csv.writer(f)
         for tbody in tbodys[::-1]:
