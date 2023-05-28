@@ -141,3 +141,4 @@ config.py
 out.csv
 *.ipynb
 *.csv
+test.py
