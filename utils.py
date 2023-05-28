@@ -18,7 +18,7 @@ def create_nec_files(user):
     lst = ['./log.log', './raw_exported_data/out.csv']
     if os.path.getsize(lst[0]) == 0:
         for val in lst:
-            print(f"    Creating {val} file")
+            print(f"Creating {val} file")
             fp = open(val, "w")
             fp.close()
         return modules.get_last_library_page(user)
