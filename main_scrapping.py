@@ -3,29 +3,41 @@ import config as cf
 import modules as md
 import datetime
 
-u.write_log()
-
-start = datetime.datetime.now()
-print(f"Extraction started at {start}")
-u.create_nec_files()
 user = u.get_username()
 
-last_page = md.get_last_library_page(user)
+u.write_log()
 
+last_page = u.create_nec_files(user)
+
+start = datetime.datetime.now()
+print(f"\nExtraction started at {start}")
+
+print(f"Import config from config.py")
 cf.import_cookies_headers()
 
-md.get_last_library_page(user = user)
+last_index_searched = 0
+try:
+    for idx in range(last_page, last_page-5, -1):
+        print(f"Scrapping page {idx}...")
+        now = datetime.datetime.now()
+        print(f"    Started at {now}")
 
-for idx in range(last_page, 0, -1):
-    print(f"Scrapping page {idx}...")
-    now = datetime.datetime.now()
-    print(f"    Started at {now}")
+        md.write_csv(md.get_soup(idx, user))
 
-    md.write_csv(md.get_soup(idx, user))
+        later = datetime.datetime.now()
+        print(f"    Finished at {later} \n      Time: {later-now}")
+        last_index_searched = idx
 
-    later = datetime.datetime.now()
-    print(f"    Finished at {later} \n      Time: {later-now}")
+        end = datetime.datetime.now()
+        print(f"Extraction ended at {end}")
+        print(f"    Time for extraction: {end - start}")
+        print(f"    Stopped at: {last_index_searched}")
 
-end = datetime.datetime.now()
-print(f"Extraction ended at {end}")
-print(f"    Time for extraction: {end - start}")
+except KeyboardInterrupt:
+        print(f"    Stopped at: {last_index_searched}")
+
+except UnboundLocalError:
+        print(f"    Stopped at: {last_index_searched}")
+
+except Exception as e:
+      print(print(str(e)))
