@@ -17,20 +17,20 @@ cf.import_cookies_headers()
 
 last_index_searched = 0
 try:
-    for idx in range(last_page, last_page-5, -1):
-        print(f"Scrapping page {idx}...")
-        now = datetime.datetime.now()
-        print(f"    Started at {now}")
+        for idx in range(0, 250, 1):
+                print(f"Scrapping page {idx}...")
+                now = datetime.datetime.now()
+                print(f"    Started at {now}")
 
-        md.write_csv(md.get_soup(idx, user))
+                md.write_csv(md.get_soup(idx, user))
 
-        later = datetime.datetime.now()
-        print(f"    Finished at {later} \n      Time: {later-now}")
-        last_index_searched = idx
+                later = datetime.datetime.now()
+                print(f"    Finished at {later} \n      Time: {later-now}")
+                last_index_searched = idx
 
-        end = datetime.datetime.now()
-        print(f"Extraction ended at {end}")
-        print(f"    Time for extraction: {end - start}")
+                end = datetime.datetime.now()
+                print(f"Extraction ended at {end}")
+                print(f"    Time for extraction: {end - start}")
         print(f"    Stopped at: {last_index_searched}")
 
 except KeyboardInterrupt:
