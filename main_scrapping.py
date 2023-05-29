@@ -17,7 +17,7 @@ cf.import_cookies_headers()
 
 last_index_searched = 0
 try:
-        for idx in range(0, 250, 1):
+        for idx in range(last_page, 0, -1):
                 print(f"Scrapping page {idx}...")
                 now = datetime.datetime.now()
                 print(f"    Started at {now}")
