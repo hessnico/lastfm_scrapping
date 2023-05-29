@@ -28,9 +28,9 @@ try:
                 print(f"    Finished at {later} \n      Time: {later-now}")
                 last_index_searched = idx
 
-                end = datetime.datetime.now()
-                print(f"Extraction ended at {end}")
-                print(f"    Time for extraction: {end - start}")
+        end = datetime.datetime.now()
+        print(f"Extraction ended at {end}")
+        print(f"    Time for extraction: {end - start}")
         print(f"    Stopped at: {last_index_searched}")
 
 except KeyboardInterrupt:
